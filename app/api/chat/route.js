@@ -1,33 +1,11 @@
 // ============================================================
 // app/api/chat/route.js — BACKEND (API Route)
 // ============================================================
-//
-// PREČO TENTO SÚBOR EXISTUJE:
-// Frontend (prehliadač) NESMIE volať Anthropic API priamo,
-// lebo by musel obsahovať API kľúč — a ten by bol viditeľný
-// pre kohokoľvek cez DevTools (F12).
-//
-// Preto máme tento "prostredník":
-// 1. Frontend pošle správu SEM (na /api/chat)
-// 2. Tento kód pridá API kľúč (z .env.local — bezpečne na serveri)
-// 3. Zavolá Claude API
-// 4. Vráti odpoveď frontendu
-//
-// Používateľ nikdy neuvidí API kľúč.
-//
-// KĽÚČOVÝ KONCEPT: API ROUTE
-// V Next.js každý súbor v app/api/ sa stane serverovým endpointom.
-// Tento súbor na ceste app/api/chat/route.js = endpoint /api/chat
-// Keď frontend pošle POST request na /api/chat, spustí sa funkcia POST() nižšie.
-// ============================================================
 
 import Anthropic from "@anthropic-ai/sdk";
 
-// Vytvor Anthropic klienta — automaticky použije ANTHROPIC_API_KEY z .env.local
 const anthropic = new Anthropic();
 
-// KNOWLEDGE BASE — všetko čo chatbot vie o Snowflake Academy
-// Toto sa posiela s KAŽDÝM requestom ako súčasť system promptu
 const KNOWLEDGE_BASE = `
 === SNOWFLAKE ACADEMY — JASNÁ, NÍZKE TATRY ===
 
@@ -110,35 +88,34 @@ PRAVIDLÁ POŽIČOVNE:
 PLATOBNÉ MOŽNOSTI: hotovosť, karty (Visa/Mastercard), bankový prevod, online platby
 `;
 
-// SYSTEM PROMPT — osobnosť chatbota + pravidlá + knowledge base
-const SYSTEM_PROMPT = `Si Snowy, priateľský virtuálny asistent lyžiarskej školy a požičovne SNOWFLAKE Academy v Jasnej.
+const SYSTEM_PROMPT = `Si Snowy, virtuálny asistent lyžiarskej školy a požičovne SNOWFLAKE Academy v Jasnej.
 
-TVOJA ÚLOHA:
-- Odpovedáš na otázky o lyžiarskej škole, požičovni, cenách, rezerváciách
-- Pomáhaš zákazníkom vybrať správny kurz alebo výstroj
-- Si nadšený z lyžovania a hôr, ale zostávaš profesionálny
-- Komunikuješ v jazyku zákazníka (slovenčina, čeština, angličtina, nemčina, poľština)
+TVOJA OSOBNOSŤ:
+Píšeš ako kamarát čo pracuje na svahu — priateľsky, prirodzene, profesionálne. Žiadne umelé frázy, žiadne krkolomné vety. Píšeš čistou slovenčinou (alebo jazykom zákazníka — čeština, angličtina, nemčina, poľština).
 
-PRAVIDLÁ:
-1. NIKDY si nevymýšľaj informácie. Ak niečo nevieš, povedz to a odporuč kontaktovať nás telefonicky alebo emailom.
-2. NIKDY neposkytuj zľavy ani špeciálne ponuky — na to nemáš oprávnenie.
-3. Pre rezervácie vždy odporuč: kontaktovať nás telefonicky (+421 903 741 741), emailom (info@snowflake.academy) alebo cez web (snowflake.academy).
-4. Ak sa zákazník pýta na počasie alebo snehové podmienky, odporuč stránku jasna.sk pre aktuálne info.
-5. Buď stručný — max 3-4 vety na odpoveď, pokiaľ zákazník nepotrebuje detailné info (cenník atď).
-6. Ak zákazník váha medzi možnosťami, pomôž mu vybrať na základe jeho úrovne a potrieb.
+PRAVIDLÁ KOMUNIKÁCIE:
+- Odpovedaj v krátkych, jasných vetách. Max 3-4 vety na odpoveď, pokiaľ zákazník nechce cenník.
+- NEPOUŽÍVAJ bodkové zoznamy ani číslovanie, pokiaľ to nie je cenník. Odpovedaj v normálnych vetách a odsekoch.
+- NEPOUŽÍVAJ markdown formátovanie (žiadne **bold**, žiadne # nadpisy). Píš čistý text.
+- Maximálne 1 emoji na správu. Žiadne hromadenie emoji.
+- Ak niečo nevieš, povedz to rovno a odporuč zavolať na +421 903 741 741 alebo napísať na info@snowflake.academy.
+
+ČOHO SA VYVAROVAŤ:
+- NIKDY si nevymýšľaj informácie ktoré nemáš v knowledge base.
+- NIKDY neposkytuj zľavy ani špeciálne ponuky.
+- NIKDY neodpovedaj na otázky mimo tému lyžiarskej školy a požičovne (politika, osobné otázky, atď). Slušne presmeruj späť na tému.
+- Ak sa zákazník pýta na počasie alebo snehové podmienky, odporuč jasna.sk.
+
+REZERVÁCIE:
+Pre rezervácie vždy odporuč kontaktovať nás telefonicky (+421 903 741 741), emailom (info@snowflake.academy) alebo cez web (snowflake.academy).
 
 KNOWLEDGE BASE:
 ${KNOWLEDGE_BASE}`;
 
-// ============================================================
-// POST funkcia — spustí sa pri každom requeste na /api/chat
-// ============================================================
 export async function POST(request) {
   try {
-    // 1. Prečítaj telo requestu (správy od frontendu)
     const { messages } = await request.json();
 
-    // 2. Zavolaj Claude API
     const response = await anthropic.messages.create({
       model: "claude-haiku-4-5-20251001",
       max_tokens: 1024,
@@ -146,13 +123,11 @@ export async function POST(request) {
       messages: messages,
     });
 
-    // 3. Extrahuj text z odpovede
     const assistantMessage = response.content
       .filter((block) => block.type === "text")
       .map((block) => block.text)
       .join("\n");
 
-    // 4. Vráť odpoveď frontendu
     return Response.json({ message: assistantMessage });
   } catch (error) {
     console.error("API Error:", error);
