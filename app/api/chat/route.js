@@ -35,7 +35,7 @@ VEČERNÉ LEKCIE (90 minút):
 - 18:00 - 19:30 → 69€
 - 19:30 - 21:00 → 69€
 
-PLATBA: 50% záloha online, po potvrdení dátumu emailom.
+PLATBA: PLATBA: Rezervácia sa potvrdzuje 50% zálohou online po potvrdení dátumu emailom. Zvyšok sa dopláca na mieste alebo je možné zaplatiť celú sumu online vopred.
 ZRUŠENIE: viac ako 48h vopred = plná refundácia. Menej ako 48h = záloha prepadá.
 TYPY VÝUČBY: lyžovanie, snowboarding, skialpinizmus, freeride
 VEKOVÉ OBMEDZENIE: deti od 4 rokov
