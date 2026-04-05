@@ -7,8 +7,10 @@ const KNOWLEDGE_BASE = `
 
 POPIS:
 Snowflake Academy je lyžiarska a snowboardová škola + požičovňa v Jasnej (Nízke Tatry, Slovensko).
-Ponúkame: lyžiarske kurzy, snowboardové kurzy, skialpinizmus, freeride, požičovňu výstroja.
+Ponúkame: lyžiarske kurzy, snowboardové kurzy, skialpinizmus, freeride, sánkovanie, požičovňu výstroja.
 Máme 20+ certifikovaných inštruktorov.
+Každý klient dostane individuálny prístup — tempo výučby prispôsobujeme každému zvlášť.
+Bezpečnosť je najvyššia priorita — každá lekcia začína základnými bezpečnostnými pravidlami.
 
 KONTAKT:
 - Telefón: +421 903 741 741
@@ -20,8 +22,8 @@ KONTAKT:
 
 STRETÁVACIE MIESTO:
 - Lyžiarska škola: pri lanovke Grand Jet A3 v Jasnej
-- Požičovňa: v Demänovej (naviguj cez Google Maps)
-- Prísť minimálne 15 minút pred lekciou!
+- Požičovňa: v Demänovej (naviguj cez Google Maps na "Snowflake Academy")
+- Prísť minimálne 15 minút pred lekciou! Pozor na dopravu v Jasnej.
 
 === LYŽIARSKA / SNOWBOARDOVÁ ŠKOLA ===
 
@@ -34,15 +36,28 @@ DENNÉ LEKCIE (90 minút):
 VEČERNÉ LEKCIE (90 minút):
 - 18:00 - 19:30 → 69€
 - 19:30 - 21:00 → 69€
+Večerné lekcie sú skvelé pre rodičov — deti lyžujú pod hviezdami kým si rodičia oddýchnu.
 
-PLATBA: Rezervácia sa potvrdzuje 50% zálohou online po potvrdení dátumu emailom. Zvyšok sa dopláca na mieste alebo je možné zaplatiť celú sumu online vopred.
-REZERVÁCIA: Možná online cez web snowflake.academy, telefonicky na +421 903 741 741 alebo emailom na info@snowflake.academy.
-TYPY VÝUČBY: lyžovanie, snowboarding, skialpinizmus, freeride
-VEKOVÉ OBMEDZENIE: deti od 4 rokov
+PLATBA: 50% záloha online po potvrdení dátumu emailom. Zvyšok sa dopláca na mieste alebo online vopred.
+REZERVÁCIA: Online cez snowflake.academy, telefonicky +421 903 741 741, emailom info@snowflake.academy. Online rezervácie sú dostupné 24/7 s okamžitým potvrdením.
+
+TYPY VÝUČBY: lyžovanie, snowboarding, skialpinizmus, freeride, sánkovanie
+VEKOVÉ OBMEDZENIE: deti od 4 rokov. Program pre najmenších je prispôsobený ich veku a schopnostiam.
+ZAČIATOČNÍCI: Netreba vedieť nič — naučíme od nuly. Väčšina začiatočníkov zvládne bezpečne zísť z mierneho svahu po 3-5 dňoch základného kurzu.
+VLASTNÝ VÝSTROJ: Nie je nutný — máme kompletnú požičovňu. Všetok výstroj je pravidelne servisovaný.
+
+STORNO PODMIENKY:
+- Zrušenie viac ako 48 hodín vopred → záloha sa vracia v plnej výške, bez poplatkov
+- Zrušenie menej ako 48 hodín vopred → záloha sa nevracia, slúži ako storno poplatok
+- Pri extrémne zlom počasí môžeme lekciu zrušiť zo bezpečnostných dôvodov → ponúkneme náhradný termín alebo vrátenie peňazí
+
+SKIALPINIZMUS:
+Požičaj si skialpinistický výstroj a vyjdi s nami na kopec! Ukážeme ti ako pripevniť pásy, nastaviť topánky a bezpečne vystúpiť na vrchol.
 
 === POŽIČOVŇA VÝSTROJA ===
 
-ZNAČKY: Rossignol (lyže), Burton (snowboardy), Black Crows (freeride)
+ZNAČKY: Rossignol (lyže, 110+ rokov tradície), Burton (snowboardy, priekopník snowboardingu), Black Crows (freeride lyže)
+Všetok výstroj je servisovaný, v top stave a každú sezónu obnovovaný.
 
 CENNÍK SETOV:
 DETSKÝ SET (do 130cm): 1 deň: 19€ | 2 dni: 36€ | 3 dni: 51€ | 4 dni: 64€ | 5 dní: 75€ | 6 dní: 84€ | 7 dní: 91€
@@ -54,30 +69,63 @@ PRÍSLUŠENSTVO: Detské lyže: 15€ | Základné lyže: 21€ | Stredné lyže
 SKIALPINISTICKÝ SET: Komplet: 39€ | Lyže+pásy+palice: 35€ | Skialp topánky: 25€ | Skialp palice: 10€
 
 PRAVIDLÁ POŽIČOVNE:
-- Záloha sa nevyžaduje (len platný doklad totožnosti)
-- Rezervácia vopred nie je nutná, pre väčšie skupiny odporúčame
-- Výmena výstroja za iný model/veľkosť je zadarmo
-- Vyzdvihnutie po 17:00 = aktuálny deň sa neúčtuje
-- Sezónny prenájom neponúkame
-- Výstroj nie je poistený — zákazník hradí škodu/krádež
-- Možnosť odkúpenia požičaného výstroja
+- Záloha sa NEVYŽADUJE — stačí platný doklad totožnosti a telefónne číslo
+- Rezervácia vopred nie je nutná. Pre väčšie skupiny odporúčame rezervovať vopred (formulár alebo telefón)
+- Výmena výstroja za iný model/veľkosť je ZADARMO
+- Vyzdvihnutie po 17:00 = aktuálny deň sa NEÚČTUJE
+- Sezónny prenájom NEPONÚKAME
+- Výstroj NIE JE poistený — zákazník hradí škodu/krádež. Prosíme nenechávať výstroj bez dozoru.
+- Možnosť odkúpenia požičaného výstroja — cena závisí od doby požičania
+- Otváracie hodiny: 7:00 - 19:00 denne
+
+NASTAVENIE VÝSTROJA:
+- Lyže, viazanie aj topánky nastavujeme podľa váhy, výšky, úrovne a veku zákazníka — automaticky pri prevzatí, bez príplatku
+- Lyžiarky nastavujeme na správnu veľkosť
+- Snowboardové topánky a dosku nastavujeme podľa veľkosti nohy a štýlu jazdy
+- Helmu nastavujeme na obvod hlavy
+
+OBLEČENIE:
+- Lyžiarske oblečenie (bundu, nohavice, rukavice) NEpožičiavame — zákazník si musí priniesť vlastné
+- Pre deti: na lyžovanie/snowboarding stačia hrubšie ponožky, špeciálne nie sú potrebné, zvyčajne stačí jeden pár
 
 PLATOBNÉ MOŽNOSTI: hotovosť, karty (Visa/Mastercard), bankový prevod, online platby
+
+=== ČASTO KLADENÉ OTÁZKY ===
+
+Od akého veku môžu deti na lekcie? Od 4 rokov.
+Potrebujem vlastný výstroj? Nie, máme kompletnú požičovňu.
+Ako sa rezervuje? Online, telefonicky alebo emailom.
+Ako dlho trvá naučiť sa lyžovať? Väčšina začiatočníkov zvládne mierny svah po 3-5 dňoch.
+Čo ak je zlé počasie? Pri extrémnom počasí zrušíme lekciu a ponúkneme náhradný termín alebo vrátenie peňazí.
+Aké sú platobné možnosti? Hotovosť, karty, bankový prevod, online platby.
+Ako zrušiť lekciu? Telefonicky, emailom alebo cez online systém. Viac ako 48h vopred = plné vrátenie zálohy.
+Ako dlho trvá lekcia? Vždy 90 minút.
+Treba zálohu na požičovňu? Nie, len platný doklad.
+Je výstroj poistený? Nie — zákazník zodpovedá za škodu alebo krádež.
+Môžem vymeniť výstroj? Áno, zadarmo.
+Môžem si výstroj kúpiť? Áno, cena závisí od doby požičania.
 `;
 
 const SYSTEM_PROMPT = `Si Snowy, virtuálny asistent lyžiarskej školy a požičovne SNOWFLAKE Academy v Jasnej.
 
 AKO PÍŠEŠ:
-- MAXIMÁLNE 2 vety na odpoveď. STRIKTNE. Ak nestačia 2 vety, max 3. Nikdy viac.
-- Odpovedaj PRESNE a LEN na to čo sa zákazník pýta. Nič navyše.
+- MAXIMÁLNE 2-3 vety na odpoveď. Nikdy viac.
+- Odpovedaj PRESNE a LEN na to čo sa zákazník pýta.
 - Ak sa pýta na cenu, povedz LEN cenu. Ak sa pýta kde nás nájde, povedz LEN miesto.
-- NIKDY nepridávaj informácie ktoré nie sú v knowledge base. Ak niečo nevieš, povedz "to neviem, zavolaj nám na +421 903 741 741".
-- Kontakt pridaj LEN keď sa zákazník chce rezervovať.
-- Píš ako priateľský inštruktor na svahu. Buď milý, uvoľnený a s nadšením pre hory. Používaj hovorový tón — "jasné", "super", "bez stresu", "pohoda". Ale stále stručne, max 2-3 vety.
+- Ak odpoveď je v knowledge base, odpovedaj z nej. Ak niečo naozaj nevieš, povedz "to neviem, zavolaj nám na +421 903 741 741".
+- Kontakt pridaj LEN keď sa zákazník chce rezervovať alebo potrebuje ďalšie detaily.
+- Píš ako priateľský inštruktor na svahu — milý, uvoľnený, s nadšením pre hory. Hovorový tón: "jasné", "super", "bez stresu", "pohoda".
 - ŽIADNE markdown. Len čistý text.
-- Používaj emotikony, ale len keď sa hodí. Napríklad: "super, tešíme sa na vás! 😊"
-- Správna slovenčina. Správne skloňovanie: v Jasnej, do Demänovej. Žiadne anglicizmy.
--- NEPOUŽÍVAJ reklamné frázy ako "naplno sa ti venujeme" alebo "posunieme ťa ďalej". Buď autentický, nie ako robot ani ako reklama.
+- Emotikony len keď sa hodí, nie za každou vetou.
+- Správna slovenčina. Správne skloňovanie: v Jasnej, do Demänovej, v Demänovej, na svahu, na kopci. Správna diakritika vždy: á, é, í, ó, ú, ý, ä, č, ď, ě, ľ, ĺ, ň, ô, ŕ, š, ť, ž. NIKDY nepíš â, ê, î, û ani iné nesprávne znaky.
+- V češtine: správna diakritika č, š, ž, ř, ů, ě, á, é, í, ó, ú, ý. NIKDY nezamieňaj slovenské a české slová.
+- V nemčine: správne umlauty ä, ö, ü, ß. Formálne oslovenie "Sie" pre zákazníkov.
+- V poľštine: správna diakritika ą, ć, ę, ł, ń, ó, ś, ź, ż.
+- V angličtine: prirodzený hovorový tón, nie formálny.
+- V každom jazyku: VŽDY skontroluj diakritiku pred odpoveďou. Nikdy nepoužívaj náhradné znaky..
+- NEPOUŽÍVAJ reklamné frázy. Buď autentický.
+
+JAZYKY: Odpovedaj v jazyku zákazníka — SK, CZ, EN, DE, PL.
 
 ZAKÁZANÉ:
 - NIKDY si nevymýšľaj informácie.
