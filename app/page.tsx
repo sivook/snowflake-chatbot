@@ -27,18 +27,40 @@ function SnowyAvatar({ size = "sm" }: { size?: "sm" | "lg" }) {
   );
 }
 
+const WELCOME_MESSAGES: Record<string, string> = {
+  sk: "Ahoj! ❄️ Som Snowy, asistent Snowflake Academy v Jasnej. Rád ti poradím s lyžiarskou školou, požičovňou výstroja alebo rezerváciou. Čo ťa zaujíma?",
+  cs: "Ahoj! ❄️ Jsem Snowy, asistent Snowflake Academy v Jasné. Rád ti poradím s lyžařskou školou, půjčovnou výstroje nebo rezervací. Co tě zajímá?",
+  en: "Hi! ❄️ I'm Snowy, the Snowflake Academy assistant in Jasná. I can help you with ski school, equipment rental or booking. What would you like to know?",
+  de: "Hallo! ❄️ Ich bin Snowy, der Assistent der Snowflake Academy in Jasná. Ich helfe dir gerne bei der Skischule, dem Verleih oder einer Buchung. Was möchtest du wissen?",
+  pl: "Cześć! ❄️ Jestem Snowy, asystent Snowflake Academy w Jasnej. Chętnie pomogę ci ze szkołą narciarską, wypożyczalnią sprzętu lub rezerwacją. Co cię interesuje?",
+};
+
+function getInitialLanguage(): string {
+  if (typeof window === "undefined") return "sk";
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get("lang") || "sk";
+  return ["sk", "cs", "en", "de", "pl"].includes(lang) ? lang : "sk";
+}
+
+const SUGGESTED_QUESTIONS: Record<string, string[]> = {
+  sk: ["Koľko stojí lekcia?", "Výstroj pre začiatočníka?", "Kde vás nájdem?", "Požičiavate snowboardy?"],
+  cs: ["Kolik stojí lekce?", "Výstroj pro začátečníka?", "Kde vás najdu?", "Půjčujete snowboardy?"],
+  en: ["How much does a lesson cost?", "Equipment for a beginner?", "Where can I find you?", "Do you rent snowboards?"],
+  de: ["Was kostet eine Stunde?", "Ausrüstung für Anfänger?", "Wo finden wir euch?", "Verleiht ihr Snowboards?"],
+  pl: ["Ile kosztuje lekcja?", "Sprzęt dla początkującego?", "Gdzie was znajdę?", "Wypożyczacie snowboardy?"],
+};
+
+const PLACEHOLDERS: Record<string, string> = {
+  sk: "Opýtaj sa na kurzy, ceny, výstroj...",
+  cs: "Zeptej se na kurzy, ceny, vybavení...",
+  en: "Ask about courses, prices, equipment...",
+  de: "Frag nach Kursen, Preisen, Ausrüstung...",
+  pl: "Zapytaj o kursy, ceny, sprzęt...",
+};
+
 const CONFIG = {
   name: "Snowy",
   subtitle: "Snowflake Academy Asistent",
-  welcomeMessage:
-    "Ahoj! ❄️ Som Snowy, asistent Snowflake Academy v Jasnej. Rád ti poradím s lyžiarskou školou, požičovňou výstroja alebo rezerváciou. Čo ťa zaujíma?",
-  placeholder: "Opýtaj sa na kurzy, ceny, výstroj...",
-  suggestedQuestions: [
-    "Koľko stojí lekcia?",
-    "Výstroj pre začiatočníka?",
-    "Kde vás nájdem?",
-    "Požičiavate snowboardy?",
-  ],
 };
 
 type Message = {
@@ -48,8 +70,18 @@ type Message = {
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: CONFIG.welcomeMessage },
-  ]);
+  { role: "assistant", content: WELCOME_MESSAGES["sk"] },
+]);
+const [lang, setLang] = useState("sk");
+
+  useEffect(() => {
+  const detectedLang = getInitialLanguage();
+  const welcomeMessage = WELCOME_MESSAGES[detectedLang] || WELCOME_MESSAGES["sk"];
+  setLang(detectedLang);
+  if (detectedLang !== "sk") {
+    setMessages([{ role: "assistant", content: welcomeMessage }]);
+  }
+}, []);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -107,11 +139,12 @@ export default function ChatPage() {
   }
 
   function clearChat() {
-    setMessages([{ role: "assistant", content: CONFIG.welcomeMessage }]);
-    setShowSuggestions(true);
-    setError(null);
-  }
-
+  const currentLang = getInitialLanguage();
+  const currentWelcome = WELCOME_MESSAGES[currentLang] || WELCOME_MESSAGES["sk"];
+  setMessages([{ role: "assistant", content: currentWelcome }]);
+  setShowSuggestions(true);
+  setError(null);
+}
   return (
     <div className="flex flex-col h-screen bg-gray-50 font-sans relative">
 
@@ -192,7 +225,7 @@ export default function ChatPage() {
 
         {showSuggestions && messages.length === 1 && (
           <div className="flex flex-wrap gap-2 pl-11 pt-1 animate-fadeIn relative z-10">
-            {CONFIG.suggestedQuestions.map((q, i) => (
+            {(SUGGESTED_QUESTIONS[lang] || SUGGESTED_QUESTIONS["sk"]).map((q, i) => (
               <button
                 key={i}
                 onClick={() => sendMessage(q)}
@@ -237,7 +270,7 @@ export default function ChatPage() {
                 sendMessage();
               }
             }}
-            placeholder={CONFIG.placeholder}
+            placeholder={PLACEHOLDERS[lang] || PLACEHOLDERS["sk"]}
             className="flex-1 bg-transparent border-none text-sm text-gray-800 py-3 outline-none placeholder:text-gray-400"
             disabled={isLoading}
           />

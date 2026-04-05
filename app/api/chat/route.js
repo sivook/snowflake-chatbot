@@ -104,9 +104,8 @@ Treba zálohu na požičovňu? Nie, len platný doklad.
 Je výstroj poistený? Nie — zákazník zodpovedá za škodu alebo krádež.
 Môžem vymeniť výstroj? Áno, zadarmo.
 Môžem si výstroj kúpiť? Áno, cena závisí od doby požičania.
-`;
-=== DOPRAVA DO JASNEJ ===
 
+=== DOPRAVA DO JASNEJ ===
 AUTOM:
 - Z Bratislavy aj Košíc: diaľnica D1 → zjazdite pri Liptovskom Mikuláši → cesta II/584 smer Demänovská Dolina → Jasná
 - Pozor: doprava v Jasnej môže byť náročná, najmä cez víkendy a sviatky — príď radšej skôr
@@ -120,11 +119,11 @@ VLAKOM:
 
 AUTOBUSOM:
 - Z Liptovského Mikuláša pravidelné autobusové spoje do Demänovskej Doliny / Jasnej
-- Najbližšia zastávka k požičovni: Demänová (4 min pešo)
+- Najbližšia zastávka k požičovni: Demänová rázcestie (2 min pešo)
 - Aktuálne cestovné poriadky: cp.sk alebo slovaklines.sk
 
-LETISKÁ:
 - Najbližšie letiská: Poprad a Žilina
+`;
 
 const SYSTEM_PROMPT = `Si Snowy, virtuálny asistent lyžiarskej školy a požičovne SNOWFLAKE Academy v Jasnej.
 
